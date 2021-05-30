@@ -1,0 +1,810 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+
+/* Colors / Fonts */
+:root {
+  --moderateCyan: hsl(176, 50%, 47%);
+  --darkCyan: hsl(176, 72%, 28%);
+  --black: hsl(0, 0%, 0%);
+  --darkGray: hsl(0, 0%, 48%);
+  --font-main-normal: 16px;
+}
+
+/* BASIS */
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  height: auto;
+  width: 100%;
+  font-family: "Commissioner", sans-serif;
+  background: #fafafa;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* HEADER DESIGN */
+header {
+  height: 400px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../../images/image-hero-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+@media (max-width: 415px) {
+  header {
+    height: 300px;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("../../images/image-hero-mobile.jpg");
+  }
+}
+
+/*  */
+/* NAV DESIGN */
+nav {
+  height: 116px;
+  width: 90%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  z-index: 6;
+}
+
+.menuLink {
+  list-style-type: none;
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuLink li a:first-child {
+  padding-left: 1rem;
+}
+
+.menuLink li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Menu Design - Mobile  */
+
+/* Hamburger Design */
+.hamburger {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  z-index: 6;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  background: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger #line1 {
+  top: 0px;
+}
+
+.hamburger #line3 {
+  top: 20px;
+}
+
+.hamburger.open #line1 {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+.hamburger.open #line2 {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hamburger.open #line3 {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+/* Menu Links Design */
+
+.menuContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu__links {
+  min-height: 212px;
+  min-width: 327px;
+  background: #fff;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  display: inline-block;
+  list-style-type: none;
+}
+
+.menu__links li {
+  padding: 1.625rem 1rem;
+}
+
+.menu__links li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+.menu__links li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: var(--black);
+  font-weight: 500;
+}
+
+@media (max-width: 415px) {
+  nav {
+    height: 85px;
+  }
+}
+
+/* Content Container Design */
+.contentContainer {
+  padding: 0 25px;
+}
+
+.contentContainer__firstInp {
+  background: #fff;
+  max-width: 730px;
+  min-height: 268px;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 0 23px;
+  transform: translateY(-56px);
+  box-shadow: 0px 3px 5px 1px #ddd;
+  text-align: center;
+}
+
+.firstInp__logo {
+  position: relative;
+  transform: translateY(-50%);
+}
+
+.firstInp__title {
+  font-size: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.firstInp__subtitle {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.firstInp__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+.firstInp__cta {
+  background: #137b74;
+  opacity: 0.7;
+  transition: all 0.3s ease-in-out;
+}
+
+.firstInp__cta:hover {
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.firstInp__buttons .button {
+  height: 56px;
+  width: 214px;
+  border-radius: 2rem;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.firstInp__buttons .firstInp__bookmark {
+  height: 56px;
+  width: 56px;
+  background: none;
+  filter: grayscale(100%);
+  fill: var(--moderateCyan);
+  transition: all 0.3s ease-in-out;
+  margin-left: 15px;
+}
+
+.firstInp__buttons .firstInp__bookmark g circle {
+  fill: #117c74;
+}
+
+.firstInp__buttons .firstInp__bookmark g path {
+  fill: #fff;
+}
+
+.firstInp__buttons .firstInp__bookmark:hover {
+  cursor: pointer;
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Media Query - Content Container Section */
+@media (min-width: 800px) {
+  .contentContainer__firstInp {
+    height: 283px;
+    transform: translateY(-91px);
+  }
+  .firstInp__title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  .firstInp__subtitle {
+    font-size: 1rem;
+    margin-bottom: 43px;
+  }
+
+  .firstInp__buttons .button {
+    min-width: 189px;
+  }
+
+  .firstInp__buttons .firstInp__bookmark {
+    display: flex;
+    background: #f4f8f9;
+    height: 56px;
+    width: 56px;
+    margin-left: 0px;
+  }
+
+  .firstInp__buttons .bookmark__text {
+    color: black;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 1rem;
+    color: var(--moderateCyan);
+  }
+}
+
+/* Content Container - Facts Section */
+.contentContainer__factsSec {
+  min-height: 410px;
+  /* min-width: 328px; */
+  max-width: 728px;
+  background: #fff;
+  box-shadow: 0px 3px 5px 1px #ddd;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  transform: translateY(-1.5rem);
+  padding: 48px;
+  border-radius: 10px;
+}
+
+.factsSec__numbers {
+  /* border: 1px solid purple; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.factsSec__numbers > div {
+  min-width: 150px;
+  max-width: 200px;
+  text-align: center;
+}
+
+.factsSec__numbers > div:not(:last-child) {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 34px;
+}
+
+.boldNum {
+  font-size: 39px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.boldNum:not(:last-child) {
+  margin-right: 0;
+}
+
+.restNum {
+  font-size: 0.8rem;
+  color: var(--darkGray);
+  margin-bottom: 27px;
+}
+
+/* Track-bar styles */
+.factsSec__trackBar {
+  position: relative;
+  width: 100%;
+  background: #f4f4f4;
+  transition: 0.1s all ease-in-out;
+  border-radius: 2rem;
+}
+
+.trackBar__fill {
+  border-radius: 2rem;
+  height: 12px;
+  width: 89%;
+  background: var(--moderateCyan);
+}
+
+/* Media Querys - Content Container - Facts Section */
+@media (min-width: 800px) {
+  .contentContainer__factsSec {
+    min-height: 210px;
+    width: 728px;
+    transform: translateY(-3.5rem);
+  }
+
+  .factsSec__numbers {
+    height: 70px;
+    flex-direction: row;
+    text-align: start;
+    margin-bottom: 40px;
+  }
+
+  .factsSec__numbers > div {
+    height: 70px;
+    min-width: 100px;
+    max-width: 100%;
+    text-align: start;
+  }
+
+  .factsSec__numbers > div:not(:last-child) {
+    margin-right: 5rem;
+    border-right: 1px solid #aaa;
+    border-bottom: none;
+    margin-bottom: 0px;
+  }
+
+  .boldNum:not(:last-child) {
+    margin-right: 3.5rem;
+  }
+}
+
+/* Content Container - About This Project Section */
+.aboutThis {
+  min-height: 410px;
+  /* min-width: 328px; */
+  max-width: 728px;
+  background: #fff;
+  box-shadow: 0px 3px 5px 1px #ddd;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  transform: translateY(-1.5rem);
+  padding: 44px 23px;
+  border-radius: 10px;
+}
+
+.aboutThis__title {
+  margin-bottom: 2.25rem;
+}
+
+.aboutThis__infoText {
+  color: var(--darkGray);
+  line-height: 1.5;
+  font-size: 0.9rem;
+  margin-bottom: 46px;
+}
+
+/* Option Boxes Design */
+.aboutThis__optionBoxes {
+  max-width: 100%;
+  min-height: 800px;
+}
+
+.aboutThis__optionBoxes .optionBox {
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  padding: 27px 24px 24px 24px;
+  list-style-type: none;
+}
+
+.aboutThis__optionBoxes
+  .mahoganySpeEdition
+  .optionBox__titleSec
+  .normalSelect:hover {
+  cursor: text;
+}
+
+.aboutThis__optionBoxes .optionBox:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.optionBox__titleSec {
+  margin-bottom: 35px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.optionBox__titleSec .boxName {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.optionBox__titleSec .boxPledgeNum {
+  color: var(--moderateCyan);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.optionBox__titleSec .boxPledgeNum:hover {
+  cursor: pointer;
+}
+
+.optionBox__infoText {
+  color: var(--darkGray);
+  line-height: 1.8;
+  font-size: 0.9em;
+  margin-bottom: 41px;
+}
+
+.optionBox__footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.optionBox__footer .numLeft {
+  margin-bottom: 31px;
+  display: flex;
+  align-items: center;
+  color: var(--darkGray);
+}
+
+.optionBox__footer .numLeft .boldText {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 12px;
+  color: var(--black);
+}
+
+.optionBox__footer .button {
+  height: 48px;
+  width: 157px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+.optionBox__footer .button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Mahogany Special Edition - Out of Stock */
+.mahoganySpeEdition {
+  opacity: 0.5;
+}
+
+.outOfStock {
+  filter: grayscale(100%);
+}
+
+/* Media Querys - Content Container - About This Project Section */
+@media (min-width: 800px) {
+  .aboutThis {
+    min-height: 210px;
+    width: 728px;
+    transform: translateY(-3rem);
+    padding: 52px 47px;
+  }
+
+  /* Option Boxes Design */
+  .aboutThis__optionBoxes .optionBox {
+    padding: 42px 31px 31px 31px;
+  }
+
+  .optionBox__titleSec {
+    margin-bottom: 38px;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .optionBox__infoText {
+    font-size: 1rem;
+    margin-bottom: 38px;
+  }
+
+  .optionBox__footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .optionBox__footer .numLeft {
+    margin-bottom: 0;
+  }
+}
+
+/* Support PopUp - About this Section */
+.support__popUp {
+  position: absolute;
+  top: 31%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  min-height: 382px;
+  min-width: 328px;
+  max-width: 540px;
+  background: #fff;
+  box-shadow: 0px 3px 5px 1px #ddd;
+  padding: 32px 28px 40px 28px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.support__popUp-checkIcon {
+  margin-bottom: 29px;
+}
+
+.support__popUp-title {
+  margin-bottom: 36px;
+}
+
+.support__popUp-infoText {
+  margin-bottom: 36px;
+}
+
+.support__popUp-button {
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.support__popUp-button:hover {
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.support__popUp-bg {
+  position: fixed;
+  height: 100%;
+  width: 120%;
+  top: 0;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  transform: translate(10%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* MEDIA QUERYS Support PopUp - About this Section */
+@media (min-width: 800px) {
+  .support__popUp {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+  }
+
+  .support__popUp-bg {
+    /* min-height: 148vh;
+    min-width: 253%;
+    transform: translate(50%);
+    right: 50%; */
+    min-height: 148vh;
+    min-width: 253%;
+    transform: translate(0%);
+    right: -75%;
+  }
+}
+
+/* Back This Project PopUp - Mastercraft Bamboo Monitor Riser Section */
+.backThisProject__popUp-overlayer {
+  position: absolute;
+  top: 0px;
+  bottom: -1.1%;
+  right: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  overflow-x: hidden;
+}
+
+.backThisProject__popUp {
+  position: absolute;
+  top: 60rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 1000px;
+  min-width: 328px;
+  width: 93%;
+  max-width: 540px;
+  background: #fff;
+  padding: 36px 24px 24px 31px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.backThisProject__popUp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.header__closeIcon:hover {
+  cursor: pointer;
+}
+
+.backThisProject__popUp-infoText {
+  text-align: start;
+  line-height: 1.6;
+  color: var(--darkGray);
+  margin-bottom: 30px;
+}
+
+.backThisProject__popUp-optionBoxes {
+  list-style-type: none;
+}
+
+.backThisProject__popUp-optionBoxes .optionBox {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 23px;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.backThisProject__popUp-optionBoxes .optionBox .optionBox__titleSec {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.optionBox__titleSec .textAlightStart .boxPledgeNum {
+  margin-top: 12px;
+}
+
+.optionBox__titleSec-radioIcon {
+  height: 24px;
+  width: 24px;
+  margin-right: 1rem;
+  border: 1px solid var(--darkGray);
+  transform: translateY(4px);
+}
+
+.optionBox.noReward .optionBox__infoText {
+  text-align: start;
+}
+
+#numLeft__popUpBox {
+  font-size: 1.4375rem;
+}
+
+.backThisProject__popUp-optionBoxes .mahoganySpeEdition .optionBox__titleSec {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* MEDIA QUERYS Back This Project PopUp - Mastercraft Bamboo Monitor Riser Section */
+@media (min-width: 800px) {
+  .backThisProject__popUp-overlayer {
+    bottom: -1.5%;
+  }
+
+  .backThisProject__popUp {
+    min-height: 900px;
+    min-width: 730px;
+    max-width: 730px;
+    padding: 32px 32px 48px 48px;
+  }
+}
+
+/* GENERAL CLASSES */
+@media (max-width: 415px) {
+  .desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 416px) {
+  .mobile {
+    display: none;
+  }
+}
+
+button {
+  height: 56px;
+  width: 214px;
+  border-radius: 2rem;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  background: var(--moderateCyan);
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bodyHidden {
+  overflow: hidden;
+}
+
+.bookmarked,
+.firstInp__bookmark.bookmarked {
+  filter: grayscale(0%);
+}
+
+.noMargin,
+.boxName.noMargin,
+.optionBox__footer.noMargin {
+  margin: 0px;
+}
+
+.textAlightStart,
+div.textAlightStart {
+  text-align: start;
+}
+
+input[type="radio"] {
+  visibility: hidden;
+}
+
+input[type="radio"]:after {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  top: 0;
+  left: 0;
+  position: relative;
+  background-color: #d1d3d1;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 3px solid #e4e4e4;
+}
+
+input[type="radio"]:checked:after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  border-radius: 15px;
+  top: 0px;
+  left: 0px;
+  position: relative;
+  background-color: #42afac;
+  display: inline-block;
+  visibility: visible;
+  border: 3px solid #f6f6f6;
+}
